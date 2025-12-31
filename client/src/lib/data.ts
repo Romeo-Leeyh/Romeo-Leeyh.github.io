@@ -1,6 +1,6 @@
 export const personalInfo = {
   name: "Yihui Li",
-  chineseName: "李逸辉",
+  chineseName: "李奕辉",
   title: "Ph.D. Candidate in Architecture",
   institution: "Tsinghua University",
   email: "liyihui23@mails.tsinghua.edu.cn",
@@ -74,6 +74,13 @@ export const projects = [
 
 export const publications = [
   {
+    authors: "YU, Z., LI, Y.*, GAO, W., LIN, B.",
+    year: "2025",
+    title: "Physical embedding on building surface spatial relationships shows better performance in graph-based daylight prediction",
+    journal: "Building and Environment",
+    link: "https://doi.org/10.1016/j.buildenv.2025.114141"
+  },
+  {
     authors: "LI, Y., GAO, W., LIN, B.*",
     year: "2022",
     title: "From Type to Network: A Review of Knowledge Representation Methods in Architecture Intelligence Design",
@@ -104,6 +111,7 @@ export const publications = [
 ];
 
 export const awards = [
+  "Tanzhen Scholar (Tsinghua University Initiative Scientific Research Program Grant No.20257020014.)",
   "Future Scholars Fellowship (top 0.5%)",
   "Outstanding Graduates of Tsinghua University (top 3%)",
   "China National Scholarship (top 0.2%)",
