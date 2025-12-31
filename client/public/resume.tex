@@ -1,0 +1,190 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Medium Length Professional CV
+% LaTeX Template
+% Version 2.0 (8/5/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Trey Hunner (http://www.treyhunner.com/)
+%
+% Important note:
+% This template requires the resume.cls file to be in the same directory as the
+% .tex file. The resume.cls file provides the resume style used for structuring the
+% document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS 
+%----------------------------------------------------------------------------------------
+ 
+\documentclass{resume} % Use the custom resume.cls style 
+\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[left=0.4 in,top=0.3 in,right=0.4 in,bottom=0.3in]{geometry} % Document margins
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+\name{Yihui Li} % Your name 
+\address{Tsinghua University, 30 Shuangqing Road, Haidian District, Beijing, 100084, China.} % Your secondary addess (optional) 
+\address{liyihui23@mails.tsinghua.edu.cn} % Your phone number and email
+
+\definecolor{TsinghuaPurple}{cmyk}{0.58,0.90,0,0}
+\renewenvironment{rSection}[1]{
+\sectionskip
+\textcolor{TsinghuaPurple}{\MakeUppercase{#1}}
+\sectionlineskip
+\hrule
+\begin{list}{}{
+%\setlength{\leftmargin}{1.5em}
+\setlength{\leftmargin}{0em}
+}
+\item[]
+}{
+\end{list}
+}
+
+
+\begin{document}  
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Education}
+\textbf{Ph.D. in Architecture} \hfill 2023 -- 2028 (expected) \\
+School of Architecture, Tsinghua University, Beijing, China \\
+Key Laboratory of Eco-planning and Green Building, Ministry of Education \\
+Supervised by Prof. Borong Lin
+
+\vspace{0.5em}
+
+\textbf{Bachelor of Architecture} \hfill 2019 -- 2023 \\
+School of Architecture, Tsinghua University, Beijing, China
+
+
+
+
+%Minor in Linguistics \smallskip \\
+%Member of Eta Kappa Nu \\
+%Member of Upsilon Pi Epsilon \\
+
+
+\end{rSection} 
+
+%----------------------------------------------------------------------------------------
+%	TECHNICAL STRENGTHS SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Research Interests}
+
+\textbf{Gen-AI-Assisted Design Reasoning for Green Buildings} \\
+Leveraging large language models and multi-agent systems to support multimodal reasoning, knowledge integration, and decision-making in sustainable building design.
+
+\textbf{Graph-Based Modeling of Spatial-Performance Coupling} \\
+Developing graph representations to capture the complex relationships between spatial configurations and building performance for accurate prediction and interpretable analysis.
+
+\textbf{Digital Modeling and Simulation for Intelligent Building Systems} \\
+Integrating BIM, rapid performance simulation, and equipment-level digitalization to enable real-time feedback, system coordination, and smart building operation.
+
+\end{rSection}
+
+
+%-------------------------------------------------------------------------------
+%	PROJECTS
+
+\begin{rSection}{Selected research projects}
+
+\begin{rSubsection}{Graph-Based Modeling of Spatial-Performance Coupling in Complex Buildings}{2025 – 2027}{PhD “Tanzhen Explorer Scholar” Project (\$30,000 funding,  top 15 projects university-wide)}{}
+\item Developed a graph-based modeling workflow that integrates space, performance, and physical relationships for complex buildings. Enabled performance prediction and design optimization using a heterogeneous GNN with embedded simulation data.
+\item Corresponding-authored a conference paper submitted to ISHVAC 2025.
+\end{rSubsection}
+
+\begin{rSubsection}{MOOSAS: Multi-Objective Optimization Software for Architectural Simulation}{2023 – Present}{Core Developer}{} 
+\item Upgraded SketchUp plugin to convert irregular architectural forms into structured BIM models and IDF files for energy simulation.
+\item Proposed a graph-based modeling approach to handle complex geometries like atriums and O-shaped corridors; validated robustness with 800+ models and open-sourced the code.
+\item Contributed to two conference papers submitted to Building Simulation 2025 as first and second author.
+\end{rSubsection}
+
+\begin{rSubsection}{MoosasQA: LLM-Powered Multimodal Reasoning Framework for Green Building Design}{2023 – 2024}{Leader}{} 
+\item Designed a reasoning framework integrating RAG, function-calling, and chain-of-thought methods to enable interactive design support.
+\item Integrated the QA tools into MOOSAS platform and developed the full-stack web application.
+\item Co-authored a conference paper submitted to ACADIA 2024.
+\end{rSubsection}
+
+\begin{rSubsection}{Convection–Radiation Coupled Workstation Terminal}{2024 – 2025}{Lead Designer, Prototype Development \& On-site Deployment}{} 
+\item Designed a height-adjustable workstation integrating air ducts, heat exchangers, and radiant panels to create a hybrid microclimate terminal.
+\item Programmed lift controller and selected components for stable motion control.
+\item Reduced thickness to 10cm and weight by 35\% through structural and thermal optimization.
+\end{rSubsection}
+
+\begin{rSubsection}{Wearable Sensor for Healthy Light Environment Monitoring}{2024 – 2025}{Product Design Lead}{} 
+\item Reconfigured PCB layout to address waterproofing and breathability for embedded temperature-humidity sensors.
+\item Optimized the casing geometry via topology refinement, reducing volume by over 40\% from the initial prototype.
+\end{rSubsection}
+
+\end{rSection} 
+
+%--------------------------------------------------------------------------------------
+%   Research Publications 
+%--------------------------------------------------------------------------------------
+\begin{rSection}{Research Publications and Working Papers } \itemsep -3pt        
+
+\textbf{Publications}
+
+\underline{\textbf{LI, Y.}}, GAO, W., LIN, B.* (2022). From Type to Network: A Review of Knowledge Representation Methods in Architecture Intelligence Design. \textit{Architectural Intelligence}, \textbf{1}(1), 4. \url{https://doi.org/10.1007/s44223-022-00006-9}
+
+\underline{\textbf{LI, Y.}}\#, YAN, X.\#, ZHOU, H., LIN, B.* (2024). Question Answering for Decision-making in Green Building Design: A Multimodal Data Reasoning Method Driven by Large Language Models. \textit{ACADIA 2024}, November 2024, Calgary, Canada. \url{https://doi.org/10.48550/arXiv.2412.04741}
+
+\underline{\textbf{LI, Y.}}, XIAO, J., ZHOU, H., LIN, B.* (2025). A Cross-Scale Normative Encoding Representation Method for 3D Building Models Suitable for Graph Neural Networks. \textit{BS 2025}, August 2025, Brisbane, Australia. \url{https://doi.org/10.26868/25222708.2025.1305}
+
+XIAO, J., \underline{\textbf{LI, Y.}}, ZHOU, H., LIN, B.*, GAO, W., LU, S. (2025). A Stable Geometry Transformation Module from 3D Geometry Data to Building Energy Model. \textit{BS 2025}, August 2025, Brisbane, Australia.  \url{https://doi.org/10.26868/25222708.2025.1299}
+
+WU, Y., LI, S., \underline{\textbf{LI, Y.}}, SUN, H., LIN, B.* et al. (2025). A Novel Convective-Radiant Personalized Environmental Control System for Intermittent Heating Demand. \textit{Building Simulation}. \href{https://doi.org/10.1007/s12273-025-1270-6}{https://doi.org/10.1007/s12273-025-1270-6}
+
+LI, S., WU, Y., LIN, B.*, \underline{\textbf{LI, Y.}} (2024). The Thermal Performance of a Novel Convection-Radiation Coupled Liftable Workstation Terminal. \textit{ASim 2024}, December 2024, Osaka, Japan.
+
+JIN, Y., ZENG, Y., \underline{\textbf{LI, Y.}}, LIN, B.* (2025). Wearable Device for Personal Light Monitoring: Assessing Visual and Non-Visual Response with Spectrally-Resolved Sensor. \textit{CIE 2025}, Vienna, Austria.
+
+\vspace{0.5em}
+\textbf{Working Papers}
+
+YU, Z., \underline{\textbf{LI, Y.}}*, XIAO, J., ZHOU, H., LIN, B. (2025). Hierarchical Graph-based Method for Static Daylight Prediction of 3D Irregular Office Buildings. \textit{ISHVAC 2025}, November 2024, Tokyo, Japan. (Accepted)
+
+
+
+\end{rSection}
+
+ 
+ %-----------------------------------------------------------------------------
+ % POSITION OF RESPONSIBILITY
+ %-----------------------------------------------------------------------------
+  
+\begin{rSection}{Academic Leadership experiences}
+
+\begin{rSubsection}{Student Affairs Committee of the Architectural Society of China}{September 2024 - Present}{Vice Student Secretary-General}{}              
+\item In charge of academic affairs.
+\end{rSubsection}  
+
+\begin{rSubsection}{ “30s Future Studies” – Architecture + AI \& Computing Group} {April 2025 - Present}{Leader and Initiator}{} 
+\item Organized nationwide student salons and academic events for young scholars.   
+\end{rSubsection}
+
+\end{rSection}
+
+
+%---------------------------------------------------------------------------------
+%  Achievements
+%--------------------------------------------------------------------------------
+
+
+\begin{rSection}{Fellowships and awards} \itemsep -2pt
+{Future Scholars Fellowship (top 0.5\%)}\hfill {2023-2028} \\
+{Outstanding Graduates of Tsinghua University (top 3\%) }\hfill {2024} \\
+{China National Scholarship (top 0.2\%)}\hfill {2022-2023} \\
+{Comprehensive Outstanding Scholarship of Tsinghua University (3 times in total)}\hfill {2020-2023}\\
+\end{rSection}
+
+\end{document}
