@@ -78,35 +78,75 @@ export const publications = [
     year: "2025",
     title: "Physical embedding on building surface spatial relationships shows better performance in graph-based daylight prediction",
     journal: "Building and Environment",
-    link: "https://doi.org/10.1016/j.buildenv.2025.114141"
+    link: "https://doi.org/10.1016/j.buildenv.2025.114141",
+    bibtex: `@article{yu2025physical,
+  title={Physical embedding on building surface spatial relationships shows better performance in graph-based daylight prediction},
+  author={Yu, Z. and Li, Y. and Gao, W. and Lin, B.},
+  journal={Building and Environment},
+  year={2025},
+  publisher={Elsevier}
+}`,
+    ieee: `Z. Yu, Y. Li, W. Gao, and B. Lin, "Physical embedding on building surface spatial relationships shows better performance in graph-based daylight prediction," Building and Environment, 2025.`
   },
   {
     authors: "LI, Y., GAO, W., LIN, B.*",
     year: "2022",
     title: "From Type to Network: A Review of Knowledge Representation Methods in Architecture Intelligence Design",
     journal: "Architectural Intelligence",
-    link: "https://doi.org/10.1007/s44223-022-00006-9"
+    link: "https://doi.org/10.1007/s44223-022-00006-9",
+    bibtex: `@article{li2022type,
+  title={From type to network: A review of knowledge representation methods in architecture intelligence design},
+  author={Li, Yihui and Gao, Weijun and Lin, Borong},
+  journal={Architectural Intelligence},
+  volume={1},
+  number={1},
+  pages={4},
+  year={2022},
+  publisher={Springer}
+}`,
+    ieee: `Y. Li, W. Gao, and B. Lin, "From type to network: A review of knowledge representation methods in architecture intelligence design," Architectural Intelligence, vol. 1, no. 1, p. 4, 2022.`
   },
   {
     authors: "LI, Y.#, YAN, X.#, ZHOU, H., LIN, B.*",
     year: "2024",
     title: "Question Answering for Decision-making in Green Building Design: A Multimodal Data Reasoning Method Driven by Large Language Models",
     journal: "ACADIA 2024",
-    link: "https://doi.org/10.48550/arXiv.2412.04741"
+    link: "https://doi.org/10.48550/arXiv.2412.04741",
+    bibtex: `@inproceedings{li2024question,
+  title={Question Answering for Decision-making in Green Building Design: A Multimodal Data Reasoning Method Driven by Large Language Models},
+  author={Li, Yihui and Yan, Xiang and Zhou, Hao and Lin, Borong},
+  booktitle={ACADIA 2024: Designing Change},
+  year={2024}
+}`,
+    ieee: `Y. Li, X. Yan, H. Zhou, and B. Lin, "Question Answering for Decision-making in Green Building Design: A Multimodal Data Reasoning Method Driven by Large Language Models," in ACADIA 2024: Designing Change, Calgary, Canada, 2024.`
   },
   {
     authors: "LI, Y., XIAO, J., ZHOU, H., LIN, B.*",
     year: "2025",
     title: "A Cross-Scale Normative Encoding Representation Method for 3D Building Models Suitable for Graph Neural Networks",
     journal: "BS 2025",
-    link: "https://doi.org/10.26868/25222708.2025.1305"
+    link: "https://doi.org/10.26868/25222708.2025.1305",
+    bibtex: `@inproceedings{li2025cross,
+  title={A Cross-Scale Normative Encoding Representation Method for 3D Building Models Suitable for Graph Neural Networks},
+  author={Li, Yihui and Xiao, Jianing and Zhou, Hao and Lin, Borong},
+  booktitle={Proceedings of Building Simulation 2025},
+  year={2025}
+}`,
+    ieee: `Y. Li, J. Xiao, H. Zhou, and B. Lin, "A Cross-Scale Normative Encoding Representation Method for 3D Building Models Suitable for Graph Neural Networks," in Proceedings of Building Simulation 2025, Brisbane, Australia, 2025.`
   },
   {
     authors: "XIAO, J., LI, Y., ZHOU, H., LIN, B.*, GAO, W., LU, S.",
     year: "2025",
     title: "A Stable Geometry Transformation Module from 3D Geometry Data to Building Energy Model",
     journal: "BS 2025",
-    link: "https://doi.org/10.26868/25222708.2025.1299"
+    link: "https://doi.org/10.26868/25222708.2025.1299",
+    bibtex: `@inproceedings{xiao2025stable,
+  title={A Stable Geometry Transformation Module from 3D Geometry Data to Building Energy Model},
+  author={Xiao, Jianing and Li, Yihui and Zhou, Hao and Lin, Borong and Gao, Weijun and Lu, Shi},
+  booktitle={Proceedings of Building Simulation 2025},
+  year={2025}
+}`,
+    ieee: `J. Xiao, Y. Li, H. Zhou, B. Lin, W. Gao, and S. Lu, "A Stable Geometry Transformation Module from 3D Geometry Data to Building Energy Model," in Proceedings of Building Simulation 2025, Brisbane, Australia, 2025.`
   }
 ];
 
