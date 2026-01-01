@@ -3,9 +3,30 @@ import { personalInfo, education, researchInterests, projects, publications, awa
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { ExternalLink, ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ExternalLink, ArrowUpRight, Quote, Copy, Check } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
 
 export default function Home() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = (text: string) => {
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    toast.success("Citation copied to clipboard");
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <div className="min-h-screen flex flex-col lg:flex-row">
       <Sidebar />
@@ -115,8 +136,8 @@ export default function Home() {
           <h2 className="text-2xl font-bold tracking-tight">Publications</h2>
           <div className="space-y-6">
             {publications.map((pub, index) => (
-              <div key={index} className="group relative pl-4 border-l-2 border-border hover:border-primary transition-colors duration-300">
-                <div className="space-y-1">
+              <div key={index} className="group relative pl-4 border-l-2 border-border hover:border-primary transition-colors duration-300 flex justify-between items-start gap-4">
+                <div className="space-y-1 flex-1">
                   <h3 className="font-medium leading-snug group-hover:text-primary transition-colors">
                     <a href={pub.link} target="_blank" rel="noreferrer" className="flex items-inline gap-1">
                       {pub.title}
@@ -132,6 +153,55 @@ export default function Home() {
                     <span>{pub.year}</span>
                   </div>
                 </div>
+
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="ghost" size="icon" className="h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <Quote className="h-4 w-4" />
+                      <span className="sr-only">Cite</span>
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-md">
+                    <DialogHeader>
+                      <DialogTitle>Cite this publication</DialogTitle>
+                      <DialogDescription>
+                        Copy the citation in BibTeX or IEEE format.
+                      </DialogDescription>
+                    </DialogHeader>
+                    <Tabs defaultValue="bibtex" className="w-full">
+                      <TabsList className="grid w-full grid-cols-2">
+                        <TabsTrigger value="bibtex">BibTeX</TabsTrigger>
+                        <TabsTrigger value="ieee">IEEE</TabsTrigger>
+                      </TabsList>
+                      <TabsContent value="bibtex" className="mt-4">
+                        <div className="relative rounded-md bg-muted p-4">
+                          <pre className="text-xs font-mono whitespace-pre-wrap break-all">{pub.bibtex}</pre>
+                          <Button
+                            size="icon"
+                            variant="ghost"
+                            className="absolute right-2 top-2 h-6 w-6"
+                            onClick={() => handleCopy(pub.bibtex || "")}
+                          >
+                            {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+                          </Button>
+                        </div>
+                      </TabsContent>
+                      <TabsContent value="ieee" className="mt-4">
+                        <div className="relative rounded-md bg-muted p-4">
+                          <p className="text-sm">{pub.ieee}</p>
+                          <Button
+                            size="icon"
+                            variant="ghost"
+                            className="absolute right-2 top-2 h-6 w-6"
+                            onClick={() => handleCopy(pub.ieee || "")}
+                          >
+                            {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+                          </Button>
+                        </div>
+                      </TabsContent>
+                    </Tabs>
+                  </DialogContent>
+                </Dialog>
               </div>
             ))}
           </div>
