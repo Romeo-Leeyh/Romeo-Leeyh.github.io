@@ -12,7 +12,7 @@ export function Sidebar() {
   const navItems = [
     { name: 'About', href: '/' },
     { name: 'Projects', href: '/projects' },
-    { name: 'Papers', href: '/papers' },
+    { name: 'Publications', href: '/publications' },
   ];
 
   return (

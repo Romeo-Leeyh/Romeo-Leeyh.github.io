@@ -14,7 +14,7 @@ import { ExternalLink, ArrowUpRight, Quote, Copy, Check } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
-export default function Papers() {
+export default function Publications() {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = (text: string) => {
