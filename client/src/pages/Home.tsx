@@ -1,32 +1,9 @@
 import { Sidebar } from "@/components/Sidebar";
-import { personalInfo, education, researchInterests, projects, publications, awards } from "@/lib/data";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { personalInfo, education, researchInterests, awards } from "@/lib/data";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ExternalLink, ArrowUpRight, Quote, Copy, Check } from "lucide-react";
-import { useState } from "react";
-import { toast } from "sonner";
 
 export default function Home() {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = (text: string) => {
-    navigator.clipboard.writeText(text);
-    setCopied(true);
-    toast.success("Citation copied to clipboard");
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
     <div className="min-h-screen flex flex-col lg:flex-row">
       <Sidebar />
@@ -34,7 +11,7 @@ export default function Home() {
       <main className="flex-1 lg:ml-[300px] p-6 lg:p-12 max-w-4xl mx-auto space-y-20">
         
         {/* About Section */}
-        <section id="about" className="space-y-8 pt-8 lg:pt-0 animate-in fade-in slide-in-from-bottom-4 duration-700">
+        <section id="about" className="space-y-12 pt-8 lg:pt-0 animate-in fade-in slide-in-from-bottom-4 duration-700">
           <div className="space-y-4">
             <h2 className="text-2xl font-bold tracking-tight">About</h2>
             <p className="text-lg leading-relaxed text-muted-foreground">
@@ -42,7 +19,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-8 md:grid-cols-2">
             <div className="space-y-4">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Education</h3>
               <div className="space-y-6">
@@ -68,142 +45,26 @@ export default function Home() {
               </ul>
             </div>
           </div>
-        </section>
 
-        <Separator className="opacity-50" />
+          <Separator className="opacity-50" />
 
-        {/* Research Interests */}
-        <section id="research" className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
-          <h2 className="text-2xl font-bold tracking-tight">Research Interests</h2>
-          <div className="grid gap-6 md:grid-cols-3">
-            {researchInterests.map((item, index) => (
-              <Card key={index} className="glass-card border-none shadow-none bg-secondary/30">
-                <CardHeader>
-                  <CardTitle className="text-base">{item.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {item.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        <Separator className="opacity-50" />
-
-        {/* Projects */}
-        <section id="projects" className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
-          <h2 className="text-2xl font-bold tracking-tight">Selected Projects</h2>
-          <div className="grid gap-6">
-            {projects.map((project, index) => (
-              <Card key={index} className="glass-card group">
-                <CardHeader>
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
-                    <CardTitle className="text-lg group-hover:text-primary transition-colors">
-                      {project.title}
-                    </CardTitle>
-                    <Badge variant="secondary" className="w-fit font-normal text-xs">
-                      {project.period}
-                    </Badge>
-                  </div>
-                  <CardDescription className="font-medium text-primary/80">
-                    {project.role}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <Badge key={tag} variant="outline" className="text-xs font-normal bg-background/50">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        <Separator className="opacity-50" />
-
-        {/* Publications */}
-        <section id="publications" className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-          <h2 className="text-2xl font-bold tracking-tight">Publications</h2>
+          {/* Research Interests (now inside About) */}
           <div className="space-y-6">
-            {publications.map((pub, index) => (
-              <div key={index} className="group relative pl-4 border-l-2 border-border hover:border-primary transition-colors duration-300 flex justify-between items-start gap-4">
-                <div className="space-y-1 flex-1">
-                  <h3 className="font-medium leading-snug group-hover:text-primary transition-colors">
-                    <a href={pub.link} target="_blank" rel="noreferrer" className="flex items-inline gap-1">
-                      {pub.title}
-                      <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </a>
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    {pub.authors}
-                  </p>
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground/70">
-                    <span className="font-medium text-foreground/80">{pub.journal}</span>
-                    <span>•</span>
-                    <span>{pub.year}</span>
-                  </div>
-                </div>
-
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Button variant="ghost" size="icon" className="h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <Quote className="h-4 w-4" />
-                      <span className="sr-only">Cite</span>
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="sm:max-w-md">
-                    <DialogHeader>
-                      <DialogTitle>Cite this publication</DialogTitle>
-                      <DialogDescription>
-                        Copy the citation in BibTeX or IEEE format.
-                      </DialogDescription>
-                    </DialogHeader>
-                    <Tabs defaultValue="bibtex" className="w-full">
-                      <TabsList className="grid w-full grid-cols-2">
-                        <TabsTrigger value="bibtex">BibTeX</TabsTrigger>
-                        <TabsTrigger value="ieee">IEEE</TabsTrigger>
-                      </TabsList>
-                      <TabsContent value="bibtex" className="mt-4">
-                        <div className="relative rounded-md bg-muted p-4">
-                          <pre className="text-xs font-mono whitespace-pre-wrap break-all">{pub.bibtex}</pre>
-                          <Button
-                            size="icon"
-                            variant="ghost"
-                            className="absolute right-2 top-2 h-6 w-6"
-                            onClick={() => handleCopy(pub.bibtex || "")}
-                          >
-                            {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-                          </Button>
-                        </div>
-                      </TabsContent>
-                      <TabsContent value="ieee" className="mt-4">
-                        <div className="relative rounded-md bg-muted p-4">
-                          <p className="text-sm">{pub.ieee}</p>
-                          <Button
-                            size="icon"
-                            variant="ghost"
-                            className="absolute right-2 top-2 h-6 w-6"
-                            onClick={() => handleCopy(pub.ieee || "")}
-                          >
-                            {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-                          </Button>
-                        </div>
-                      </TabsContent>
-                    </Tabs>
-                  </DialogContent>
-                </Dialog>
-              </div>
-            ))}
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Research Interests</h3>
+            <div className="grid gap-6 md:grid-cols-3">
+              {researchInterests.map((item, index) => (
+                <Card key={index} className="glass-card border-none shadow-none bg-secondary/30">
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-base">{item.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {item.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </section>
 

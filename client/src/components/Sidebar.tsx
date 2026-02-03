@@ -3,9 +3,17 @@ import { cn } from "@/lib/utils";
 import { Github, Mail, MapPin, FileText, Moon, Sun } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { Button } from "./ui/button";
+import { Link, useLocation } from "wouter";
 
 export function Sidebar() {
   const { theme, toggleTheme } = useTheme();
+  const [location] = useLocation();
+
+  const navItems = [
+    { name: 'About', href: '/' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'Papers', href: '/papers' },
+  ];
 
   return (
     <aside className="w-full lg:w-[300px] lg:fixed lg:h-screen p-6 lg:p-12 flex flex-col justify-between bg-background/50 backdrop-blur-sm border-b lg:border-b-0 lg:border-r border-border z-10">
@@ -29,14 +37,19 @@ export function Sidebar() {
         </div>
 
         <nav className="space-y-2 hidden lg:block">
-          {['About', 'Research', 'Projects', 'Publications'].map((item) => (
-            <a 
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="block text-muted-foreground hover:text-foreground transition-colors py-1 text-sm font-medium hover:translate-x-1 duration-200"
+          {navItems.map((item) => (
+            <Link 
+              key={item.name}
+              href={item.href}
+              className={cn(
+                "block transition-colors py-1 text-sm font-medium hover:translate-x-1 duration-200",
+                location === item.href 
+                  ? "text-primary font-semibold" 
+                  : "text-muted-foreground hover:text-foreground"
+              )}
             >
-              {item}
-            </a>
+              {item.name}
+            </Link>
           ))}
         </nav>
       </div>
