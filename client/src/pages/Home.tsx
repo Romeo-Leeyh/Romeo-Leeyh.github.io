@@ -1,5 +1,5 @@
 import { Sidebar } from "@/components/Sidebar";
-import { personalInfo, education, researchInterests, awards } from "@/lib/data";
+import { personalInfo, education, researchInterests, awards, academicLeadership } from "@/lib/data";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
@@ -39,7 +39,10 @@ export default function Home() {
                 {awards.map((award, index) => (
                   <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
                     <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary/50 shrink-0" />
-                    {award}
+                    <span>
+                      {award.name}
+                      <span className="ml-1 text-xs text-muted-foreground/60">({award.year})</span>
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -48,7 +51,7 @@ export default function Home() {
 
           <Separator className="opacity-50" />
 
-          {/* Research Interests (now inside About) */}
+          {/* Research Interests */}
           <div className="space-y-6">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Research Interests</h3>
             <div className="grid gap-6 md:grid-cols-3">
@@ -66,10 +69,29 @@ export default function Home() {
               ))}
             </div>
           </div>
+
+          <Separator className="opacity-50" />
+
+          {/* Academic Leadership */}
+          <div className="space-y-6">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Academic Leadership</h3>
+            <div className="space-y-6">
+              {academicLeadership.map((item, index) => (
+                <div key={index} className="space-y-1 pl-4 border-l-2 border-border">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                    <div className="font-medium text-sm">{item.title}</div>
+                    <span className="text-xs text-muted-foreground/70 shrink-0">{item.period}</span>
+                  </div>
+                  <div className="text-sm text-primary/80 font-medium">{item.role}</div>
+                  <div className="text-xs text-muted-foreground/80">{item.description}</div>
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
 
         <footer className="pt-20 pb-8 text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} Yihui Li. Built with React & Tailwind.</p>
+          <p>&copy; {new Date().getFullYear()} Yihui Li. Built with React & Tailwind.</p>
         </footer>
 
       </main>
