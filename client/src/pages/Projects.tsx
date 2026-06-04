@@ -18,40 +18,47 @@ export default function Projects() {
           <div className="grid gap-6">
             {projects.map((project, index) => (
               <Card key={index} className="glass-card group overflow-hidden">
-                {(project as any).image && (
-                  <div className="w-full overflow-hidden bg-muted/30 border-b border-border">
-                    <img
-                      src={(project as any).image}
-                      alt={project.title}
-                      className="w-full h-48 object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                    />
+                <div className="flex flex-col md:flex-row">
+                  {/* Text content */}
+                  <div className="flex-1 min-w-0">
+                    <CardHeader>
+                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                        <CardTitle className="text-lg group-hover:text-primary transition-colors">
+                          {project.title}
+                        </CardTitle>
+                        <Badge variant="secondary" className="w-fit font-normal text-xs shrink-0">
+                          {project.period}
+                        </Badge>
+                      </div>
+                      <CardDescription className="font-medium text-primary/80">
+                        {project.role}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <p className="text-muted-foreground leading-relaxed">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.map((tag) => (
+                          <Badge key={tag} variant="outline" className="text-xs font-normal bg-background/50">
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+                    </CardContent>
                   </div>
-                )}
-                <CardHeader>
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
-                    <CardTitle className="text-lg group-hover:text-primary transition-colors">
-                      {project.title}
-                    </CardTitle>
-                    <Badge variant="secondary" className="w-fit font-normal text-xs">
-                      {project.period}
-                    </Badge>
-                  </div>
-                  <CardDescription className="font-medium text-primary/80">
-                    {project.role}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <Badge key={tag} variant="outline" className="text-xs font-normal bg-background/50">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
+
+                  {/* Right-side image */}
+                  {(project as any).image && (
+                    <div className="md:w-56 md:shrink-0 border-t md:border-t-0 md:border-l border-border overflow-hidden bg-muted/20">
+                      <img
+                        src={(project as any).image}
+                        alt={project.title}
+                        className="w-full h-44 md:h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                  )}
+                </div>
               </Card>
             ))}
           </div>
