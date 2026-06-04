@@ -24,77 +24,90 @@ function PublicationItem({ pub }: { pub: typeof publications[0] }) {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const pubWithImage = pub as typeof publications[0] & { image?: string };
+
   return (
-    <div className="group relative pl-4 border-l-2 border-border hover:border-primary transition-colors duration-300 flex flex-col md:flex-row justify-between items-start gap-6">
-      <div className="space-y-2 flex-1">
-        <h3 className="text-sm font-semibold leading-snug group-hover:text-primary transition-colors">
-          {pub.link ? (
-            <a href={pub.link} target="_blank" rel="noreferrer" className="flex items-inline gap-1">
-              {pub.title}
-              <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-            </a>
-          ) : (
-            <span>{pub.title}</span>
-          )}
-        </h3>
-        <p className="text-xs text-muted-foreground">
-          {pub.authors}
-        </p>
-        <div className="flex items-center gap-2 text-[10px] uppercase tracking-wider text-muted-foreground/70">
-          <span className="font-semibold text-foreground/80">{pub.journal}</span>
-          <span>&bull;</span>
-          <span>{pub.year}</span>
-        </div>
-        
-        <div className="pt-1">
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button variant="outline" size="sm" className="h-7 px-2 text-[10px] gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                <Quote className="h-3 w-3" />
-                Cite
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-md">
-              <DialogHeader>
-                <DialogTitle>Cite this publication</DialogTitle>
-                <DialogDescription>
-                  Copy the citation in BibTeX or IEEE format.
-                </DialogDescription>
-              </DialogHeader>
-              <Tabs defaultValue="bibtex" className="w-full">
-                <TabsList className="grid w-full grid-cols-2">
-                  <TabsTrigger value="bibtex">BibTeX</TabsTrigger>
-                  <TabsTrigger value="ieee">IEEE</TabsTrigger>
-                </TabsList>
-                <TabsContent value="bibtex" className="mt-4">
-                  <div className="relative rounded-md bg-muted p-4">
-                    <pre className="text-xs font-mono whitespace-pre-wrap break-all">{pub.bibtex}</pre>
-                    <Button
-                      size="icon"
-                      variant="ghost"
-                      className="absolute right-2 top-2 h-6 w-6"
-                      onClick={() => handleCopy(pub.bibtex || "")}
-                    >
-                      {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-                    </Button>
-                  </div>
-                </TabsContent>
-                <TabsContent value="ieee" className="mt-4">
-                  <div className="relative rounded-md bg-muted p-4">
-                    <p className="text-sm">{pub.ieee}</p>
-                    <Button
-                      size="icon"
-                      variant="ghost"
-                      className="absolute right-2 top-2 h-6 w-6"
-                      onClick={() => handleCopy(pub.ieee || "")}
-                    >
-                      {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-                    </Button>
-                  </div>
-                </TabsContent>
-              </Tabs>
-            </DialogContent>
-          </Dialog>
+    <div className="group relative border border-border rounded-lg hover:border-primary/40 transition-colors duration-300 overflow-hidden">
+      <div className="flex flex-col md:flex-row">
+        {pubWithImage.image && (
+          <div className="md:w-48 md:shrink-0 overflow-hidden bg-muted/30">
+            <img
+              src={pubWithImage.image}
+              alt={pub.title}
+              className="w-full h-36 md:h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+        )}
+        <div className="flex-1 p-4 space-y-2">
+          <h3 className="text-sm font-semibold leading-snug group-hover:text-primary transition-colors">
+            {pub.link ? (
+              <a href={pub.link} target="_blank" rel="noreferrer" className="flex items-start gap-1">
+                <span>{pub.title}</span>
+                <ArrowUpRight className="w-3 h-3 mt-0.5 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
+            ) : (
+              <span>{pub.title}</span>
+            )}
+          </h3>
+          <p className="text-xs text-muted-foreground">
+            {pub.authors}
+          </p>
+          <div className="flex items-center gap-2 text-[10px] uppercase tracking-wider text-muted-foreground/70">
+            <span className="font-semibold text-foreground/80">{pub.journal}</span>
+            <span>&bull;</span>
+            <span>{pub.year}</span>
+          </div>
+          
+          <div className="pt-1">
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="outline" size="sm" className="h-7 px-2 text-[10px] gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Quote className="h-3 w-3" />
+                  Cite
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-md">
+                <DialogHeader>
+                  <DialogTitle>Cite this publication</DialogTitle>
+                  <DialogDescription>
+                    Copy the citation in BibTeX or IEEE format.
+                  </DialogDescription>
+                </DialogHeader>
+                <Tabs defaultValue="bibtex" className="w-full">
+                  <TabsList className="grid w-full grid-cols-2">
+                    <TabsTrigger value="bibtex">BibTeX</TabsTrigger>
+                    <TabsTrigger value="ieee">IEEE</TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="bibtex" className="mt-4">
+                    <div className="relative rounded-md bg-muted p-4">
+                      <pre className="text-xs font-mono whitespace-pre-wrap break-all">{pub.bibtex}</pre>
+                      <Button
+                        size="icon"
+                        variant="ghost"
+                        className="absolute right-2 top-2 h-6 w-6"
+                        onClick={() => handleCopy(pub.bibtex || "")}
+                      >
+                        {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+                      </Button>
+                    </div>
+                  </TabsContent>
+                  <TabsContent value="ieee" className="mt-4">
+                    <div className="relative rounded-md bg-muted p-4">
+                      <p className="text-sm">{pub.ieee}</p>
+                      <Button
+                        size="icon"
+                        variant="ghost"
+                        className="absolute right-2 top-2 h-6 w-6"
+                        onClick={() => handleCopy(pub.ieee || "")}
+                      >
+                        {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+                      </Button>
+                    </div>
+                  </TabsContent>
+                </Tabs>
+              </DialogContent>
+            </Dialog>
+          </div>
         </div>
       </div>
     </div>
@@ -121,7 +134,7 @@ export default function Publications() {
           {journalPapers.length > 0 && (
             <div className="space-y-6">
               <h3 className="text-lg font-semibold tracking-tight">Journal Papers</h3>
-              <div className="space-y-8">
+              <div className="space-y-4">
                 {journalPapers.map((pub, index) => (
                   <PublicationItem key={`journal-${index}`} pub={pub} />
                 ))}
@@ -133,7 +146,7 @@ export default function Publications() {
           {conferencePapers.length > 0 && (
             <div className="space-y-6">
               <h3 className="text-lg font-semibold tracking-tight">Conference Papers</h3>
-              <div className="space-y-8">
+              <div className="space-y-4">
                 {conferencePapers.map((pub, index) => (
                   <PublicationItem key={`conf-${index}`} pub={pub} />
                 ))}
@@ -145,7 +158,7 @@ export default function Publications() {
           {workingPapers.length > 0 && (
             <div className="space-y-6">
               <h3 className="text-lg font-semibold tracking-tight">Working Papers</h3>
-              <div className="space-y-8">
+              <div className="space-y-4">
                 {workingPapers.map((pub, index) => (
                   <PublicationItem key={`working-${index}`} pub={pub} />
                 ))}

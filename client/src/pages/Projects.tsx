@@ -17,7 +17,16 @@ export default function Projects() {
           
           <div className="grid gap-6">
             {projects.map((project, index) => (
-              <Card key={index} className="glass-card group">
+              <Card key={index} className="glass-card group overflow-hidden">
+                {(project as any).image && (
+                  <div className="w-full overflow-hidden bg-muted/30 border-b border-border">
+                    <img
+                      src={(project as any).image}
+                      alt={project.title}
+                      className="w-full h-48 object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                )}
                 <CardHeader>
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
                     <CardTitle className="text-lg group-hover:text-primary transition-colors">

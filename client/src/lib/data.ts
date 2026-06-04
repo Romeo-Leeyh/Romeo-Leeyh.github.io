@@ -4,10 +4,10 @@ export const personalInfo = {
   title: "Ph.D. Candidate in Architecture",
   institution: "Tsinghua University",
   email: "liyihui23@mails.tsinghua.edu.cn",
-  location: "Beijing, China",
+  location: "Berkeley, CA / Beijing, China",
   github: "https://github.com/Romeo-Leeyh",
-  bio: "Ph.D. Candidate at the School of Architecture, Tsinghua University. My research focuses on Graph-Based Modeling of Spatial-Performance Coupling, Gen-AI-Assisted Design Reasoning for Green Buildings, and Digital Modeling and Simulation for Intelligent Building Systems. I will be a visiting Ph.D. student scholar at UC Berkeley (2026–2027).",
-  avatar: "https://avatars.githubusercontent.com/u/82253350?v=4",
+  bio: "Ph.D. Candidate at the School of Architecture, Tsinghua University, currently a Visiting Ph.D. Student Scholar at the University of California, Berkeley (Center for Environmental Design Research, 2026–2027). My research focuses on Graph-Based Modeling of Spatial-Performance Coupling, Gen-AI-Assisted Design Reasoning for Green Buildings, and Digital Modeling and Simulation for Intelligent Building Systems.",
+  avatar: "/images/avatar.png",
   resumeUrl: "/resume.pdf"
 };
 
@@ -21,7 +21,7 @@ export const education = [
   {
     degree: "Visiting Ph.D. Student Scholar",
     school: "University of California, Berkeley",
-    year: "2026 – 2027 (expected)",
+    year: "2026 – 2027",
     details: "Center for Environmental Design Research. Supervised by Prof. Ramon Weber."
   },
   {
@@ -53,21 +53,24 @@ export const projects = [
     period: "2025 – 2027",
     role: 'PhD "Tanzhen Scholar" Program ($30,000 funding, top 15 projects university-wide)',
     description: "Developed a graph-based modeling workflow that integrates space, performance, and physical relationships for complex buildings. Enabled performance prediction and design optimization using a heterogeneous GNN with embedded simulation data.",
-    tags: ["GNN", "Building Performance", "Python"]
+    tags: ["GNN", "Building Performance", "Python"],
+    image: "/images/proj_graph.png"
   },
   {
     title: "MOOSAS: Multi-Objective Optimization Software for Architectural Simulation",
     period: "2023 – Present",
     role: "Core Developer",
     description: "Upgraded SketchUp plugin to convert irregular architectural forms into structured BIM models and IDF files for energy simulation. Proposed a graph-based modeling approach to handle complex geometries like atriums and O-shaped corridors; validated robustness with 800+ models and open-sourced the code. Contributed to two conference papers submitted to Building Simulation 2025 as first and second author.",
-    tags: ["SketchUp", "BIM", "Optimization", "Open Source"]
+    tags: ["SketchUp", "BIM", "Optimization", "Open Source"],
+    image: "/images/pub_autcon2026.png"
   },
   {
     title: "MoosasQA: LLM-Powered Multimodal Reasoning Framework for Green Building Design",
     period: "2023 – 2024",
     role: "Leader",
     description: "Designed a reasoning framework integrating RAG, function-calling, and chain-of-thought methods to enable interactive design support. Integrated the QA tools into MOOSAS platform and developed the full-stack web application. Co-authored a conference paper submitted to ACADIA 2024.",
-    tags: ["LLM", "RAG", "Full-stack"]
+    tags: ["LLM", "RAG", "Full-stack"],
+    image: "/images/proj_moosasqa.jpg"
   },
   {
     title: "Convection–Radiation Coupled Workstation Terminal",
@@ -95,6 +98,7 @@ export const publications = [
     pages: "106815",
     link: "https://doi.org/10.1016/j.autcon.2026.106815",
     type: "journal",
+    image: "/images/pub_autcon2026.png",
     bibtex: `@article{li2026geometry,
   title={From Geometry to Graph: Automation of Building Performance Modeling via Convex Graph Encoding},
   author={Li, Yihui and Xiao, Jun and Zhou, Hao and Lin, Borong},
@@ -115,6 +119,7 @@ export const publications = [
     pages: "114141",
     link: "https://doi.org/10.1016/j.buildenv.2025.114141",
     type: "journal",
+    image: "/images/pub_buildenv2026.png",
     bibtex: `@article{yu2026physical,
   title={Physical embedding on building surface spatial relationships shows better performance in graph-based daylight prediction},
   author={Yu, Zhexuan and Li, Yihui and Xiao, Jun and Zhou, Hao and Lin, Borong},
@@ -194,6 +199,7 @@ export const publications = [
     journal: "ACADIA 2024",
     link: "https://doi.org/10.52842/conf.acadia.2024.2.457",
     type: "conference",
+    image: "/images/proj_moosasqa.jpg",
     bibtex: `@inproceedings{liQuestionAnsweringDecisionmaking2024a,
   title = {Question Answering for Decision-making in Green Building Design: A Multimodal Data Reasoning Method Driven by Large Language Models},
   booktitle = {Proceedings of the 44th Annual Conference for the Association for Computer Aided Design in Architecture},
