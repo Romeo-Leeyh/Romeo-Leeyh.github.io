@@ -54,7 +54,7 @@ export const projects = [
     role: 'PhD "Tanzhen Scholar" Program ($30,000 funding, top 15 projects university-wide)',
     description: "Developed a graph-based modeling workflow that integrates space, performance, and physical relationships for complex buildings. Enabled performance prediction and design optimization using a heterogeneous GNN with embedded simulation data.",
     tags: ["GNN", "Building Performance", "Python"],
-    image: "/images/proj_graph.png"
+    image: "/images/proj_examplelist.webp"
   },
   {
     title: "MOOSAS: Multi-Objective Optimization Software for Architectural Simulation",
@@ -140,6 +140,7 @@ export const publications = [
     pages: "4",
     link: "https://doi.org/10.1007/s44223-022-00006-9",
     type: "journal",
+    image: "/images/proj_graph.png",
     bibtex: `@article{liTypeNetworkReview2022,
   title = {From Type to Network: A Review of Knowledge Representation Methods in Architecture Intelligence Design},
   author = {Li, Yihui and Gao, Wen and Lin, Borong},
@@ -314,17 +315,24 @@ export const publications = [
     authors: "XIAO, J., WANG, Q., LI, Y., YU, Z., ZHOU, H., LIN, B.",
     year: "2026",
     title: "A Fully Automated DM-BIM-BEM Pipeline Enabling Graph-Based Intelligence, Interoperability, and Performance-Driven Early Design",
-    journal: "Preprint, arXiv (Working Paper)",
-    link: "https://doi.org/10.48550/arXiv.2601.16813",
-    type: "working",
-    bibtex: `@article{xiao2026fully,
-  title = {A Fully Automated DM-BIM-BEM Pipeline Enabling Graph-Based Intelligence, Interoperability, and Performance-Driven Early Design},
+    journal: "Advanced Engineering Informatics",
+    volume: "75",
+    pages: "104824",
+    link: "https://doi.org/10.1016/j.aei.2026.104824",
+    type: "journal",
+    image: "/images/pub_aei2026.webp",
+    bibtex: `@article{xiaoFullyAutomatedDMBIMBEM2026a,
+  title = {A Fully Automated {{DM-BIM-BEM}} Pipeline Enabling Graph-Based Intelligence, Interoperability, and Performance-Driven Early Design},
   author = {Xiao, Jun and Wang, Qiong and Li, Yihui and Yu, Zhexuan and Zhou, Hao and Lin, Borong},
   year = 2026,
-  journal = {arXiv preprint},
-  doi = {10.48550/arXiv.2601.16813}
+  month = oct,
+  journal = {Advanced Engineering Informatics},
+  volume = {75},
+  pages = {104824},
+  issn = {1474-0346},
+  doi = {10.1016/j.aei.2026.104824}
 }`,
-    ieee: `J. Xiao, Q. Wang, Y. Li, Z. Yu, H. Zhou, and B. Lin, "A Fully Automated DM-BIM-BEM Pipeline Enabling Graph-Based Intelligence, Interoperability, and Performance-Driven Early Design," arXiv preprint, 2026.`
+    ieee: `J. Xiao, Q. Wang, Y. Li, Z. Yu, H. Zhou, and B. Lin, "A Fully Automated DM-BIM-BEM Pipeline Enabling Graph-Based Intelligence, Interoperability, and Performance-Driven Early Design," Advanced Engineering Informatics, vol. 75, p. 104824, 2026.`
   }
 ];
 
