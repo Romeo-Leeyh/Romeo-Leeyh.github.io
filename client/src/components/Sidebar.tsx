@@ -13,30 +13,32 @@ export function Sidebar() {
     { name: 'About', href: '/' },
     { name: 'Projects', href: '/projects' },
     { name: 'Publications', href: '/publications' },
+    { name: 'Travel', href: '/travel' },
   ];
 
   return (
-    <aside className="w-full lg:w-[300px] lg:fixed lg:h-screen p-6 lg:p-12 flex flex-col justify-between bg-background/50 backdrop-blur-sm border-b lg:border-b-0 lg:border-r border-border z-10">
-      <div className="space-y-8">
-        <div className="space-y-4">
-          <div className="relative w-24 h-24 rounded-full overflow-hidden ring-2 ring-primary/20">
+    <aside className="z-10 flex w-full flex-col justify-between border-b border-border bg-background/50 p-5 backdrop-blur-sm lg:fixed lg:h-screen lg:w-[300px] lg:border-b-0 lg:border-r lg:p-12">
+      <div className="space-y-5 lg:space-y-8">
+        <div className="flex items-center gap-4 lg:block lg:space-y-4">
+          <div className="relative size-16 shrink-0 overflow-hidden rounded-full ring-2 ring-primary/20 lg:size-24">
             <img 
               src={personalInfo.avatar} 
               alt={personalInfo.name}
               className="w-full h-full object-cover"
             />
           </div>
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">{personalInfo.name}</h1>
-            <p className="text-muted-foreground text-lg">{personalInfo.chineseName}</p>
-          </div>
-          <div className="space-y-1">
-            <p className="font-medium text-primary">{personalInfo.title}</p>
-            <p className="text-sm text-muted-foreground">{personalInfo.institution}</p>
+          <div className="min-w-0 space-y-2 lg:space-y-4">
+            <div>
+              <h1 className="text-2xl font-bold tracking-tight lg:text-3xl">{personalInfo.name}</h1>
+            </div>
+            <div className="space-y-0.5 lg:space-y-1">
+              <p className="text-sm font-medium text-primary lg:text-base">{personalInfo.title}</p>
+              <p className="text-xs text-muted-foreground lg:text-sm">{personalInfo.institution}</p>
+            </div>
           </div>
         </div>
 
-        <nav className="space-y-2 hidden lg:block">
+        <nav className="flex flex-wrap gap-x-4 gap-y-1 lg:block lg:space-y-2">
           {navItems.map((item) => (
             <Link 
               key={item.name}
@@ -54,8 +56,8 @@ export function Sidebar() {
         </nav>
       </div>
 
-      <div className="space-y-6 mt-8 lg:mt-0">
-        <div className="space-y-3 text-sm text-muted-foreground">
+      <div className="mt-3 flex items-center lg:mt-0 lg:block lg:space-y-6">
+        <div className="hidden space-y-3 text-sm text-muted-foreground lg:block">
           <a href={`mailto:${personalInfo.email}`} className="flex items-center gap-3 hover:text-primary transition-colors">
             <Mail className="w-4 h-4" />
             <span className="truncate">{personalInfo.email}</span>

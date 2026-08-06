@@ -1,6 +1,5 @@
 export const personalInfo = {
   name: "Yihui Li",
-  chineseName: "李奕辉",
   title: "Ph.D. Candidate in Architecture",
   institution: "Tsinghua University",
   email: "liyihui23@mails.tsinghua.edu.cn",
