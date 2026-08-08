@@ -315,6 +315,27 @@ export const travelPlaces: TravelPlace[] = [
     ],
     photos: photoPaths("los-angeles-san-diego", 9),
   },
+  {
+    id: "seattle",
+    label: "Seattle",
+    country: "United States",
+    countryId: "840",
+    period: "2026.07",
+    markers: [{ label: "Seattle", coordinates: [-122.33, 47.61] }],
+    photos: photoPaths("seattle", 9, "png"),
+  },
+  {
+    id: "salt-lake-city-yellowstone",
+    label: "Salt Lake City · Yellowstone",
+    country: "United States",
+    countryId: "840",
+    period: "2026.07",
+    markers: [
+      { label: "Salt Lake City", coordinates: [-111.89, 40.76] },
+      { label: "Yellowstone", coordinates: [-110.59, 44.43] },
+    ],
+    photos: photoPaths("salt-lake-city-yellowstone", 9, "png"),
+  },
 ];
 
 export const travelPhotoCount = travelPlaces.reduce(
